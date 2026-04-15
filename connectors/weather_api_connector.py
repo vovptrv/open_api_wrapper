@@ -32,4 +32,13 @@ class WeatherApiConnector(ApiConnector):
         self,
         endpoint: str,
         query_params: Dict[str, Any],
-    ) -> Dict[str, Any]: ...
+    ) -> Dict[str, Any]:
+        query = {**query_params, "appid": self._api_key}
+
+        response = requests.post(
+            f"{self._base_url}/{endpoint}",
+            params=query,
+            timeout=10,
+        )
+        response.raise_for_status()
+        return response.json()
