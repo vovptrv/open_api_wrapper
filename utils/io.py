@@ -2,13 +2,11 @@ from typing import Protocol
 
 
 class Output(Protocol):
-    def write(self, message: str) -> None:
-        ...
+    def write(self, message: str) -> None: ...
 
 
 class Input(Protocol):
-    def read(self, prompt: str) -> str:
-        ...
+    def read(self, prompt: str) -> str: ...
 
 
 class ConsoleOutput:
