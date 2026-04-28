@@ -11,10 +11,3 @@ class ApiConnector(ABC):
         endpoint: str,
         query_params: Dict[str, Any],
     ) -> Dict[str, Any]: ...
-
-    @abstractmethod
-    def post(
-        self,
-        endpoint: str,
-        query_params: Dict[str, Any],
-    ) -> Dict[str, Any]: ...
